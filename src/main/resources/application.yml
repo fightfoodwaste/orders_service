@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: order_service
+  cassandra:
+    keyspace-name: orders
+    contact-points: localhost:9042
+    config: classpath:application.conf
+server:
+  port: 8083
+
