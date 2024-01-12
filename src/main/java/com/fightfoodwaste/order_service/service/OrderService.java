@@ -1,20 +1,9 @@
 package com.fightfoodwaste.order_service.service;
 
-import com.fightfoodwaste.order_service.entity.OrderEntity;
-import com.fightfoodwaste.order_service.enums.OrderStatus;
-import com.fightfoodwaste.order_service.repository.OrdersRepository;
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
+import com.fightfoodwaste.order_service.dto.CreateOrderRequest;
 
-@Service
-@RequiredArgsConstructor
-public class OrderService {
+public interface OrderService {
 
-    private final OrdersRepository repository;
-
-    public void testsave(){
-        repository.save(new OrderEntity(0L, 1L, 2L, 1, OrderStatus.CREATED, LocalDateTime.now()));
-    }
+    void createOrder(CreateOrderRequest request);
 }

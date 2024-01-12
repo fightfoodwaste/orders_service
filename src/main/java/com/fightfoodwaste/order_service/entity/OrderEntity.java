@@ -1,14 +1,17 @@
 package com.fightfoodwaste.order_service.entity;
 
 import com.fightfoodwaste.order_service.enums.OrderStatus;
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.cassandra.core.cql.PrimaryKeyType;
+import org.springframework.data.cassandra.core.mapping.Column;
 import org.springframework.data.cassandra.core.mapping.PrimaryKey;
 import org.springframework.data.cassandra.core.mapping.Table;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Data
@@ -17,14 +20,20 @@ import java.time.LocalDateTime;
 @Table("orders")
 public class OrderEntity {
 
-    @PrimaryKey
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
-    private Long id;
+    @PrimaryKey
+    @GeneratedValue(generator = "UUID")
+    @Column("id")
+    private UUID id;
+    @Column("product_id")
     private Long product_id;
+    @Column("account_id")
     private Long account_id;
+    @Column("product_amount")
     private int product_amount;
     @Enumerated(EnumType.STRING)
+    @Column("status")
     private OrderStatus status;
-    private LocalDateTime timestamp;
+    @Column("timestamp")
+    private Long timestamp;
 }

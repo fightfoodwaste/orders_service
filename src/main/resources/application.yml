@@ -1,10 +1,12 @@
 spring:
   application:
     name: order_service
-  cassandra:
-    keyspace-name: orders
-    contact-points: localhost:9042
-    config: classpath:application.conf
+  data:
+    cassandra:
+      keyspace-name: orders
+      contact-points: localhost
+      port: 9042
+      local-datacenter: datacenter1
 server:
   port: 8083
 
