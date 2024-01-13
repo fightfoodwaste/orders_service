@@ -13,23 +13,23 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class MessagingConfig {
-    public static final String ORDER_CREATED_QUEUE_NAME = "order-created";
-    public static final String ORDERS_EXCHANGE_NAME = "orders-exchange";
-    public static final String ORDER_CREATED_ROUTING_KEY = "order-created";
+    public static final String VERIFY_STOCK_QUEUE_NAME = "verify-stock";
+    public static final String VERIFY_STOCK_EXCHANGE_NAME = "verify-stock-exchange";
+    public static final String VERIFY_STOCK_ROUTING_KEY = "verify-stock";
 
     @Bean
     org.springframework.amqp.core.Queue order_created_queue() {
-        return new org.springframework.amqp.core.Queue(ORDER_CREATED_QUEUE_NAME, true);
+        return new org.springframework.amqp.core.Queue(VERIFY_STOCK_QUEUE_NAME, true);
     }
 
     @Bean
     DirectExchange exchange() {
-        return new DirectExchange(ORDERS_EXCHANGE_NAME);
+        return new DirectExchange(VERIFY_STOCK_EXCHANGE_NAME);
     }
 
     @Bean
     Binding binding(Queue queue, DirectExchange exchange) {
-        return BindingBuilder.bind(queue).to(exchange).with(ORDER_CREATED_ROUTING_KEY);
+        return BindingBuilder.bind(queue).to(exchange).with(VERIFY_STOCK_ROUTING_KEY);
     }
 
     @Bean

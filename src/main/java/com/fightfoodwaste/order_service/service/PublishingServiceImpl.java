@@ -13,7 +13,6 @@ public class PublishingServiceImpl implements PublishingService{
     private final RabbitTemplate rabbitTemplate;
     @Override
     public void publishToSave(OrderCreatedMessage payload) {
-        rabbitTemplate.convertAndSend(MessagingConfig.ORDERS_EXCHANGE_NAME, MessagingConfig.ORDER_CREATED_ROUTING_KEY, payload);
-        System.out.println("Message Published!");
+        rabbitTemplate.convertAndSend(MessagingConfig.VERIFY_STOCK_EXCHANGE_NAME, MessagingConfig.VERIFY_STOCK_ROUTING_KEY, payload);
     }
 }

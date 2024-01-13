@@ -5,10 +5,7 @@ import com.fightfoodwaste.order_service.service.OrderService;
 import com.fightfoodwaste.order_service.service.OrderServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/orders")
@@ -18,7 +15,7 @@ public class OrderController {
     private final OrderService service;
 
     @PostMapping
-    public ResponseEntity createOrder(CreateOrderRequest request){
+    public ResponseEntity createOrder(@RequestBody CreateOrderRequest request){
         try {
             service.createOrder(request);
             return ResponseEntity.ok().build();

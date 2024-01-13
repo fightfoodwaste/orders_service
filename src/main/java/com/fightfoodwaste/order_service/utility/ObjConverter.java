@@ -26,7 +26,7 @@ public class ObjConverter {
         entity.setAccount_id(request.getAccount_id());
         entity.setProduct_id(request.getProduct_id());
         entity.setProduct_amount(request.getProduct_amount());
-        entity.setStatus(OrderStatus.CREATED);
+        entity.setStatus(OrderStatus.PENDING_STOCK);
         entity.setTimestamp(getCurrentTimestamp());
         return entity;
     }

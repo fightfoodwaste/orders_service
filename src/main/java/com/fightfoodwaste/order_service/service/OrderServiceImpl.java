@@ -25,5 +25,6 @@ public class OrderServiceImpl implements  OrderService {
         repository.save(entity);
         OrderCreatedMessage payload = converter.generateOrderCreatedPayload(entity);
         publishingService.publishToSave(payload);
+        System.out.println("Awaiting stock confirmation for order #" + entity.getId());
     }
 }
