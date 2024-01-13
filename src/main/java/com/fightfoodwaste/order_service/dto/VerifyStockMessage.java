@@ -9,9 +9,9 @@ import java.util.UUID;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderCreatedMessage {
+public class VerifyStockMessage {
 
-    private UUID order_id;
+    private String order_id;
     private Long product_id;
     private int product_amount;
 

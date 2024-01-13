@@ -1,7 +1,7 @@
 package com.fightfoodwaste.order_service.utility;
 
 import com.fightfoodwaste.order_service.dto.CreateOrderRequest;
-import com.fightfoodwaste.order_service.dto.OrderCreatedMessage;
+import com.fightfoodwaste.order_service.dto.VerifyStockMessage;
 import com.fightfoodwaste.order_service.entity.OrderEntity;
 import com.fightfoodwaste.order_service.enums.OrderStatus;
 import org.springframework.stereotype.Component;
@@ -31,7 +31,7 @@ public class ObjConverter {
         return entity;
     }
 
-    public OrderCreatedMessage generateOrderCreatedPayload(OrderEntity entity){
-        return new OrderCreatedMessage(entity.getId(), entity.getProduct_id(), entity.getProduct_amount());
+    public VerifyStockMessage generateOrderCreatedPayload(OrderEntity entity){
+        return new VerifyStockMessage(entity.getId().toString(), entity.getProduct_id(), entity.getProduct_amount());
     }
 }

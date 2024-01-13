@@ -17,6 +17,8 @@ public class MessagingConfig {
     public static final String VERIFY_STOCK_EXCHANGE_NAME = "verify-stock-exchange";
     public static final String VERIFY_STOCK_ROUTING_KEY = "verify-stock";
 
+    public static final String STOCK_VERIFIED_QUEUE_NAME = "stock-verified";
+
     @Bean
     org.springframework.amqp.core.Queue order_created_queue() {
         return new org.springframework.amqp.core.Queue(VERIFY_STOCK_QUEUE_NAME, true);
