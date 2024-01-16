@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: order-service
+  data:
+    cassandra:
+      keyspace-name: orders
+      contact-points: localhost
+      port: 9042
+      local-datacenter: datacenter1
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+eureka:
+  instance:
+    prefer-ip-address: true
+    ip-address: localhost
+    hostname: localhost
+    metadata-map:
+      metrics_path: /actuator/prometheus
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    register-with-eureka: true
+    fetch-registry: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info, prometheus
+
+server:
+  port: 8083
+
