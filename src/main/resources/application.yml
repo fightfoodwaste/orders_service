@@ -4,8 +4,7 @@ server:
 spring:
   application:
     name: order-service
-  data:
-    cassandra:
+  cassandra:
       keyspace-name: orders
       contact-points: ${CASSANDRA_CONTACT_POINTS}
       port: ${CASSANDRA_PORT}

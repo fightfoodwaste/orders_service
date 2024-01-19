@@ -1,7 +1,7 @@
 package com.fightfoodwaste.order_service.entity;
 
 import com.fightfoodwaste.order_service.enums.OrderStatus;
-import javax.persistence.*;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;

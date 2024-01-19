@@ -21,7 +21,6 @@ public class OrderController {
             return ResponseEntity.ok().build();
 
         }catch (Exception e){
-            e.printStackTrace();
             return ResponseEntity.internalServerError().build();
         }
     }

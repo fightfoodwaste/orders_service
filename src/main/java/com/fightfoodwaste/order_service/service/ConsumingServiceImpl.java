@@ -20,6 +20,7 @@ public class ConsumingServiceImpl implements ConsumingService{
     public void consumeStockVerification(StockVerifiedMessage payload) {
         UUID order_id = UUID.fromString(payload.getOrder_id());
         if(payload.isAvailable()){
+
             orderService.updateStatus(order_id, OrderStatus.COMPLETE);
         }
         else{

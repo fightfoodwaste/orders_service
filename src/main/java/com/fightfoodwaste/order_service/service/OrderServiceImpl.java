@@ -33,6 +33,7 @@ public class OrderServiceImpl implements  OrderService {
 
     @Override
     public void updateStatus(UUID order_id, OrderStatus status) {
+        System.out.println("Order #" + order_id + " status set to " + status.toString());
         repository.updateOrderStatus(order_id, status.toString());
     }
 
